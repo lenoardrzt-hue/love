@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="love.png" />
+  <title>Happy 2 Month Anniversary</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;600;700&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Kanvas Hujan Ambient Love dari Atas ke Bawah -->
+  <canvas id="heartRainCanvas"></canvas>
+
+  <!-- =====================================================================
+       SCENE 1: AMPLOP & PANAH CUPID (FOTO 1)
+       ===================================================================== -->
+  <main id="sceneCupid" class="scene active">
+    <div class="cupid-container">
+      <!-- Amplop Pink Retro -->
+      <div id="envelopeWrap" class="envelope-wrap" aria-label="Surat Anniversary">
+        <div class="envelope-box">
+          <div class="envelope-flap" id="envelopeFlap"></div>
+          <div class="envelope-pocket-left"></div>
+          <div class="envelope-pocket-right"></div>
+          <div class="envelope-pocket-bottom"></div>
+
+          <!-- Panah Love yang Menancap di Tengah Amplop Saat Kena -->
+          <div id="stuckArrow" class="stuck-arrow" aria-hidden="true">
+            <svg width="44" height="58" viewBox="0 0 44 58" overflow="visible">
+              <rect x="20" y="24" width="4" height="30" rx="2" fill="#8d5730" />
+              <path d="M22 28 C12 20, 6 12, 13 6 C17 3, 21 6, 22 10 C23 6, 27 3, 31 6 C38 12, 32 20, 22 28 Z" fill="#e23b4e" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teks Bersih Tanpa Kotak Background Putih -->
+      <div class="envelope-caption">
+        <p class="title-main">♥ Happy 2 Month Sayang ♥</p>
+        <p class="title-date">19 November</p>
+      </div>
+
+      <!-- Area Busur & Panah Cupid (Lengkungan Kayu di Atas, Senar di Bawah) -->
+      <div id="bowStage" class="bow-stage" role="button" tabindex="0" aria-label="Tarik dan lepaskan panah Cupid">
+        <svg id="cupidSvg" width="260" height="230" viewBox="0 0 260 230" overflow="visible">
+          <!-- Lengkungan Kayu Busur Menghadap ke Atas (∩) -->
+          <path
+            id="bowWood"
+            d="M 42 155 Q 130 75 218 155"
+            fill="none"
+            stroke="#945b32"
+            stroke-width="10"
+            stroke-linecap="round"
+          />
+          <!-- Highlight Kayu Halus -->
+          <path
+            id="bowWoodHighlight"
+            d="M 52 149 Q 130 82 208 149"
+            fill="none"
+            stroke="#b67849"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <!-- Ujung Pengait Tali Busur -->
+          <circle id="tipLeft" cx="42" cy="155" r="5" fill="#6f4120" />
+          <circle id="tipRight" cx="218" cy="155" r="5" fill="#6f4120" />
+
+          <!-- Senar / Tali Busur di Bagian Bawah -->
+          <path
+            id="bowString"
+            d="M 42 155 Q 130 155 218 155"
+            fill="none"
+            stroke="#7b5843"
+            stroke-width="2.5"
+            stroke-linecap="round"
+          />
+
+          <!-- Anak Panah Berujung Love Merah Utuh Menghadap ke Atas -->
+          <g id="arrowGroup" transform="translate(130, 125)">
+            <!-- Bulu Ekor Panah -->
+            <path d="M -8 48 L 0 38 L 8 48 L 8 56 L 0 47 L -8 56 Z" fill="#f3a6b8" stroke="#d97b73" stroke-width="1.5" />
+            <!-- Batang Kayu Panah -->
+            <rect x="-2.2" y="-18" width="4.4" height="66" rx="2" fill="#8d5730" />
+            <!-- Ujung Panah Bentuk Love Merah Utuh (Tidak Terpotong) -->
+            <path
+              d="M 0 -10 C -13 -21, -21 -33, -12 -41 C -7 -45, -1 -41, 0 -35 C 1 -41, 7 -45, 12 -41 C 21 -33, 13 -21, 0 -10 Z"
+              fill="#e23b4e"
+            />
+          </g>
+        </svg>
+      </div>
+
+      <p class="aim-hint">Aim &amp; release to shoot Cupid's arrow</p>
+    </div>
+  </main>
+
+  <!-- =====================================================================
+       SCENE 2: JENDELA RETRO KUCING PIXEL & YES/NO (FOTO 2)
+       ===================================================================== -->
+  <section id="sceneWindow" class="scene hidden" aria-hidden="true">
+    <div class="retro-window">
+      <!-- Titlebar Window -->
+      <div class="window-titlebar">
+        <span class="window-title">LOVE</span>
+        <div class="window-controls" aria-hidden="true">
+          <span class="win-btn">_</span>
+          <span class="win-btn">□</span>
+          <span class="win-btn">×</span>
+        </div>
+      </div>
+
+      <!-- Sub-bar Hati -->
+      <div class="window-subbar" aria-hidden="true">
+        <span>♥</span>
+        <span class="dot">▪</span>
+        <span>♥</span>
+        <span class="dot">▪</span>
+        <span>♥</span>
+      </div>
+
+      <!-- Area Pink Gingham -->
+      <div id="ginghamArea" class="window-body">
+        <!-- Tampilan Pertanyaan + Kucing Pixel + Tombol YES / NO -->
+        <div id="questionView" class="question-view">
+          <h1 class="question-text">Happy 2 month, my love ♡<br />Still love me?</h1>
+
+          <!-- Kucing Hitam Pixel Memegang Love -->
+          <div class="cat-stage">
+            <canvas id="pixelCatCanvas" width="170" height="145"></canvas>
+          </div>
+
+          <!-- Area Tombol YES & NO Berdampingan -->
+          <div id="buttonArena" class="button-arena">
+            <button id="yesBtn" type="button" class="retro-btn btn-yes">YES</button>
+            <button id="noBtn" type="button" class="retro-btn btn-no">NO</button>
+          </div>
+        </div>
+
+        <!-- Tampilan Video Perayaan Saat Tombol YES Dipilih -->
+        <div id="celebrationView" class="celebration-view hidden">
+          <h2 class="celeb-title">Yippeeee! ♥ Happy 2 Months sayangggg!</h2>
+          <p class="celeb-subtitle">Forever with kinannnn ♡</p>
+
+          <div class="video-frame">
+            <!-- ============================================================
+                 MASUKKAN VIDEO KAMU DI BAWAH INI!
+                 Ganti bagian src="" dengan nama file video kamu
+                 (contoh: src="video-anniversary.mp4") atau URL video kamu.
+                 ============================================================ -->
+            <video id="anniversaryVideo" src="video.mov" controls playsinline></video>
+
+            <!-- Pesan otomatis hilang jika atribut src="" di atas sudah diisi -->
+            <div id="videoPlaceholderMsg" class="video-placeholder">
+              <p>♥ Tempat Video Spesial Kita ♥</p>
+              <span>Isi <code>src="..."</code> pada tag <code>&lt;video&gt;</code> di file <code>index.html</code> untuk menampilkan videomu.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
